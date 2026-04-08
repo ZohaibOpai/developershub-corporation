@@ -62,3 +62,47 @@ document.querySelectorAll('.service-card, .portfolio-card, .contact-item').forEa
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
+
+// ===== COUNTER ANIMATION =====
+function animateCounter(element, target, duration) {
+    let start = 0;
+    const increment = target / (duration / 16);
+
+    const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+            element.innerText = target.toLocaleString() + '+';
+            clearInterval(timer);
+        } else {
+            element.innerText = Math.floor(start).toLocaleString() + '+';
+        }
+    }, 16);
+}
+
+// Observer for counter
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounter(document.querySelector('.stat:nth-child(1) h3'), 129000, 2000);
+            animateCounter(document.querySelector('.stat:nth-child(2) h3'), 98, 2000);
+            animateCounter(document.querySelector('.stat:nth-child(3) h3'), 50, 2000);
+            counterObserver.disconnect();
+        }
+    });
+}, { threshold: 0.5 });
+
+const statsSection = document.querySelector('.about-stats');
+if (statsSection) counterObserver.observe(statsSection);
+
+// ===== DARK/LIGHT MODE =====
+const themeToggle = document.getElementById('themeToggle');
+
+themeToggle.addEventListener('click', function () {
+    document.body.classList.toggle('light-mode');
+
+    if (document.body.classList.contains('light-mode')) {
+        themeToggle.innerText = '☀️';
+    } else {
+        themeToggle.innerText = '🌙';
+    }
+});
