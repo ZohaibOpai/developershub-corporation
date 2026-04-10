@@ -1,3 +1,9 @@
+AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
+});
+
 // ===== NAVBAR SCROLL EFFECT =====
 window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
