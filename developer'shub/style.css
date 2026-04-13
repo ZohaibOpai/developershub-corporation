@@ -666,6 +666,118 @@ select.form-input option {
   background: #00e676;
 }
 
+/* ===== FAQ ===== */
+.faq {
+  padding: 100px 0;
+  background: #0d0d0d;
+}
+
+.faq-item {
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.faq-item:hover {
+  border-color: #00c853;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  cursor: pointer;
+  background: #1a1a1a;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.faq-icon {
+  color: #00c853;
+  font-size: 24px;
+  font-weight: 300;
+  transition: transform 0.3s;
+}
+
+.faq-answer {
+  padding: 0 24px;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease,
+    padding 0.3s ease;
+}
+
+.faq-answer p {
+  color: #888888;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  padding: 16px 24px;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-item.active {
+  border-color: #00c853;
+}
+
+/* ===== TEAM ===== */
+.team {
+  padding: 100px 0;
+  background: #0a0a0a;
+}
+
+.team-card {
+  text-align: center;
+  padding: 30px 20px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.team-card:hover {
+  border-color: #00c853;
+  transform: translateY(-8px);
+}
+
+.team-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  border: 3px solid #00c853;
+}
+
+.team-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-card h4 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.team-card span {
+  color: #00c853;
+  font-size: 13px;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
   .hero h1 {
