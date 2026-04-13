@@ -112,3 +112,73 @@ themeToggle.addEventListener('click', function () {
         themeToggle.innerText = '🌙';
     }
 });
+
+// ===== LOADER =====
+window.addEventListener('load', function () {
+    setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+    }, 1800);
+});
+
+// ===== SCROLL TO TOP =====
+window.addEventListener('scroll', function () {
+    const scrollBtn = document.getElementById('scrollTop');
+    if (window.scrollY > 500) {
+        scrollBtn.style.display = 'block';
+    } else {
+        scrollBtn.style.display = 'none';
+    }
+});
+
+document.getElementById('scrollTop').addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ===== FORM VALIDATION =====
+document.querySelector('.meeting button').addEventListener('click', function () {
+    const inputs = document.querySelectorAll('.meeting .form-input');
+    let valid = true;
+
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            input.style.borderColor = '#ef4444';
+            valid = false;
+        } else {
+            input.style.borderColor = '#00c853';
+        }
+    });
+
+    if (valid) {
+        alert('✅ Meeting booked successfully! We will contact you soon.');
+        inputs.forEach(input => {
+            input.value = '';
+            input.style.borderColor = '#2a2a2a';
+        });
+    } else {
+        alert('❌ Please fill all fields!');
+    }
+});
+
+document.querySelector('.contact button').addEventListener('click', function () {
+    const inputs = document.querySelectorAll('.contact .form-input');
+    let valid = true;
+
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            input.style.borderColor = '#ef4444';
+            valid = false;
+        } else {
+            input.style.borderColor = '#00c853';
+        }
+    });
+
+    if (valid) {
+        alert('📨 Message sent successfully! We will get back to you soon.');
+        inputs.forEach(input => {
+            input.value = '';
+            input.style.borderColor = '#2a2a2a';
+        });
+    } else {
+        alert('❌ Please fill all fields!');
+    }
+});

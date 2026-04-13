@@ -583,6 +583,89 @@ select.form-input option {
   font-size: 12px;
 }
 
+/* ===== LOADER ===== */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.loader-content {
+  text-align: center;
+}
+
+.loader-content h2 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.loader-content h2 span {
+  color: #00c853;
+}
+
+.loader-bar {
+  width: 200px;
+  height: 4px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.loader-bar::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 100%;
+  background: #00c853;
+  animation: load 1.5s ease forwards;
+}
+
+@keyframes load {
+  to {
+    width: 100%;
+  }
+}
+
+#loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===== SCROLL TO TOP ===== */
+#scrollTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #00c853;
+  color: #000000;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 200, 83, 0.4);
+}
+
+#scrollTop:hover {
+  transform: translateY(-4px);
+  background: #00e676;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
   .hero h1 {
